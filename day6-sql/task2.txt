@@ -1,0 +1,11 @@
+select max(avg_rate)
+from (select course_id, avg(rate) AS avg_rate
+      from course_student
+      group by course_id) ;
+
+OR 
+
+SELECT max(select avg(rate) AS avg_rate
+      from course_student
+      group by course_id )
+from course_student
